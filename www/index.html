@@ -54,7 +54,7 @@
 		    function tiraFoto(){
 			//alert("pass");
 				navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-				destinationType: Camera.DestinationType.FILE_URL,
+				destinationType: Camera.DestinationType.DATA_URL,
 				saveToPhotoAlbum:true;
 				});
 
