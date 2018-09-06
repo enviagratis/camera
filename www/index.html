@@ -55,13 +55,13 @@
 			//alert("pass");
 				navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
 				destinationType: Camera.DestinationType.DATA_URL,
-				saveToPhotoAlbum:true;
+				saveToPhotoAlbum:true
 				});
 
 			}	
 
 			function onSuccess(imageData) {
-			//alert("sucesso");
+			alert("sucesso");
 				var image = document.getElementById('minhafoto');
 				image.style.display = "block";
 				image.src = "data:image/jpeg;base64," + imageData;
