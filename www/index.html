@@ -38,14 +38,19 @@
 		<script type="text/javascript">
 		
 		function leCodigo(){
+		    alert("2");
 			cordova.plugins.barcodeScanner.scan(
+			alert("4");
 			   function (result) {
+			    alert("5");
 					if(!result.cancelled){
 						   //In this case we only want to process QR Codes
 						   if(result.format == "QR_CODE"){
 								var value = result.text;
 								// This is the retrieved content of the qr code
-								console.log(value);
+								//console.log(value);
+								alert(value);
+								
 						   }else{
 							  alert("Sorry, only qr codes this time ;)");
 						   }
@@ -74,5 +79,7 @@
 		
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     </body>
 </html>
