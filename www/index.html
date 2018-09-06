@@ -46,33 +46,46 @@
 			<img style="display:none;width:250px;height:250px;" id="minhafoto" src=""/>
 		</div>
 		
+			    <br>
+		<br>
+	    <div>
+			<button onclick="leQR()">QRCode</button>
+		</div>
 		
         <script type="text/javascript" src="cordova.js"></script>
 		
 		<script type="text/javascript">
 
 		    function tiraFoto(){
-			//alert("pass");
 				navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
 				destinationType: Camera.DestinationType.DATA_URL,
 				saveToPhotoAlbum:true
 				});
 
 			}	
-
 			function onSuccess(imageData) {
-			alert("sucesso");
 				var image = document.getElementById('minhafoto');
 				image.style.display = "block";
 				image.src = "data:image/jpeg;base64," + imageData;
 			}
-
 			function onFail(message) {
 				alert('Falha: ' + message);
 			}
 		
 		
-		
+			function leQR(){
+				cordova.plugins.barcodeScanner.scan(
+					  function (result) {
+						  alert("A barcode has been scanned \n" +
+								"Result: " + result.text + "\n" +
+								"Format: " + result.format + "\n" +
+								"Cancelled: " + result.cancelled);
+					  }, 
+					  function (error) {
+						  alert("Scanning failed: " + error);
+					  }
+				 );
+			}
 			
 		
 		</script>
